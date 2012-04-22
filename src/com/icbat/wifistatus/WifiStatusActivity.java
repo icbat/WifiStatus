@@ -1,37 +1,16 @@
 package com.icbat.wifistatus;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import android.app.ListActivity;
 import android.os.Bundle;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
+import android.widget.ArrayAdapter;
 
 public class WifiStatusActivity extends ListActivity {
-    /** Called when the activity is first created. */
+    String[] listItems = {"item 1", "item 2 ", "list", "android", "item 3", "foobar", "bar", }; 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        
-    	// Initialization
-    	super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-        
-        
-    }
-    
-    private List<HashMap<String,String>> getOutput ()	{
-    	List<HashMap<String,String>> out = new ArrayList<HashMap<String,String>>();
-    	HashMap<String, String> item = new HashMap<String,String>();
-    	item.clear();
-        item.put("1", "A");
-        item.put("2", "B");
-        out.add(item);
-        item.clear();
-        item.put("3", "C");
-        item.put("4", "D");
-        out.add(item);
-    	return out;
-    }
+     public void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.main);
+         setListAdapter(new ArrayAdapter(this,  android.R.layout.simple_list_item_1, listItems));
+     }
+
 }
