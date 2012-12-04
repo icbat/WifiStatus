@@ -1,4 +1,4 @@
-package com.icbat.wifistatus; // Please edit this line if you're forking your own copy.
+package com.icbat.wifistatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,13 +16,8 @@ public class WifiStatusActivity extends ListActivity {
     
     @Override
      public void onCreate(Bundle savedInstanceState) {
-    	
-		
     	List<String> out = getWifiInfo();
-    	 
-    	
-    	 
-    	 
+
         super.onCreate(savedInstanceState);
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, out));
     }
@@ -32,13 +27,15 @@ public class WifiStatusActivity extends ListActivity {
     	WifiInfo wifiInfo = wifi.getConnectionInfo();
     	DhcpInfo dhcp = wifi.getDhcpInfo();
     	
-    	List<String> info = new ArrayList<String>();
+    	// Whatever string is given is what outputs
+    	List<String> info = new ArrayList<String>(); 
     	
     	// The following come from Wifi Info
     	info.add("SSID:  " + wifiInfo.getSSID());
     	info.add("BSSID:  " + wifiInfo.getBSSID());
     	info.add("Hidden:  " + wifiInfo.getHiddenSSID());
     	info.add("MAC:  " + wifiInfo.getMacAddress());
+    	info.add("Speed:  " + WifiInfo.LINK_SPEED_UNITS);
     	
     	// The following come from DHCP Info
     	info.add("IP:  " + Formatter.formatIpAddress(dhcp.ipAddress));
@@ -48,8 +45,6 @@ public class WifiStatusActivity extends ListActivity {
     	info.add("DHCP:  " + Formatter.formatIpAddress(dhcp.serverAddress));
     	info.add("Subnet:  " + Formatter.formatIpAddress(dhcp.netmask));
     	info.add("Lease Duration:  " + dhcp.leaseDuration);
-    	
-    	
     	
     	return info;
     }
