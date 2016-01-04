@@ -35,7 +35,7 @@ public class WifiStatusActivity extends ListActivity {
     	info.add("BSSID:  " + wifiInfo.getBSSID());
     	info.add("Hidden:  " + wifiInfo.getHiddenSSID());
     	info.add("MAC:  " + wifiInfo.getMacAddress());
-    	info.add("Speed:  " + WifiInfo.LINK_SPEED_UNITS);
+    	info.add("Speed:  " + wifiInfo.getLinkSpeed() + " " + WifiInfo.LINK_SPEED_UNITS);
     	
     	// The following come from DHCP Info
     	info.add("IP:  " + Formatter.formatIpAddress(dhcp.ipAddress));
