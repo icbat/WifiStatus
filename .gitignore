@@ -17,3 +17,8 @@ local.properties
 
 # Intellij bits
 .idea/
+*.iml
+
+# Gradle
+*gradle*
+#.gradle/
